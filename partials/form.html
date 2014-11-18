@@ -1,0 +1,57 @@
+<form role="form" name="form2" novalidate>
+	<label for="firstName">First name <span class="red">*<span></label>
+	<input type="text" name="firstName" placeholder="First name" id="firstName" ng-model="myForm.firstName" ng-required="true" ng-minlength="5" ng-maxlength="12" ng-pattern="/^[a-zA-Z-_\s]+$/">
+	<span ng-show="form2.firstName.$dirty && form2.firstName.$invalid">
+		<span class="error" ng-show="form2.firstName.$error.required">Required!</span>
+		<span class="error" ng-show="form2.firstName.$error.minlength">Minlength 5</span>
+		<span class="error" ng-show="form2.firstName.$error.maxlength">Maxlength 12</span>
+		<span class="error" ng-show="form2.firstName.$error.pattern">Only latin letters, space and symbols "-", "_" are allowed</span>
+	</span><br>
+	
+	<label for="lastName">Last name <span class="red">*<span></label>
+	<input type="text" name="lastName" placeholder="Last name" id="lastName"  ng-model="myForm.lastName" ng-required="true">
+	<span ng-show="form2.lastName.$dirty && form2.lastName.$invalid">
+		<span class="error" ng-show="form2.lastName.$error.required">Required!</span>
+	</span><br>
+	
+	<label for="agree">Agree<span class="red">*<span></label>
+	<input type="checkbox" name="agree" ng-model="myForm.agree" ng-required="true">
+	<span ng-show="form2.agree.$dirty && form2.agree.$invalid">
+		<span class="error" ng-show="form2.agree.$error.required">Required!</span>
+	</span><br>
+	
+	<label for="gender">Gender <span class="red">*<span></label>
+	<input type="radio" name="gender" ng-model="myForm.gender" value="male" ng-required="!myForm.gender">male
+	<input type="radio" name="gender"ng-model="myForm.gender" value="female" ng-required="!myForm.gender">female
+	<span ng-show="form2.gender.$dirty && form2.gender.$invalid">
+		<span class="error" ng-show="form2.gender.$error.required">Required!</span>
+	</span><br>
+	
+	<label for="car">Car</label>
+	<select name="car" ng-model="myForm.car" ng-options="obj.id as obj.name for obj in cars">
+		<option value="" disabled>Please choose a car</option>
+	</select>
+	<br>
+	
+	<label for="country">Country<span class="red">*<span></label>
+	<select name="country" ng-model="myForm.country" ng-required="true">
+		<option value="" disabled>Please choose a country</option>
+		<option ng-repeat='country in countries' value='{{country.id}}'>{{country.name}}</option>   
+	</select>
+	<span ng-show="form2.country.$dirty && form2.country.$invalid">
+		<span class="error" ng-show="form2.country.$error.required">Required!</span>
+	</span><br>
+	
+	<label for="region">Region<span class="red">*<span></label>
+	<select name="region" ng-model="myForm.region" ng-required="true">
+		<option value="" disabled>Please select a region</option>
+		<option ng-repeat='region in getRegions()' value='{{region.id}}'>{{region.name}}</option>
+	</select>
+	<span ng-show="form2.region.$dirty && form2.region.$invalid">
+		<span class="error" ng-show="form2.region.$error.required">Required!</span>
+	</span><br>
+	
+	<br>
+	<button class="btn btn-default" type="submit" ng-click="save()" ng-disabled="form2.$invalid">Submit</button>
+	<button class="btn btn-default" type="submit" ng-click="reset()">Reset</button>
+</form>

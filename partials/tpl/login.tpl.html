@@ -1,0 +1,15 @@
+<form role="form" name="form1" novalidate>
+  <div>
+  	<p>Welcome : <span>{{user.name}}</span></p>
+    <label for="exampleInputName">Name</label>
+    <input type="text" placeholder="Enter name" id="exampleInputName" class="form-control" ng-model="user.name" required>
+  </div>
+  <div>
+    <label for="exampleInputPassword">Password</label>
+    <input type="password" placeholder="Password" id="exampleInputPassword" class="form-control" ng-model="user.pass" required>
+  </div>
+  <p>login: demo <br/> password: demo</p>
+  <button class="btn btn-default" type="submit" ng-click="login(user)" ng-disabled="form1.$invalid">Submit</button>
+  <br /><br />
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+</form>
