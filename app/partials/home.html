@@ -1,0 +1,30 @@
+<div ng-cloak="">
+<form class="custom">
+	<p>You need login before open image dialog</p>
+	<label for="searchFilter">Filter by:</label>
+	<input id="searchFilter" class="searchFilter" placeholder="Enter name or character here to filter results"
+	type="text" ng-model="search">
+	<label for="sortby">Sort by:</label>
+	<select id="sortby" class="small" ng-model="sortOrder">
+		<option value="" disabled>Please select...</option>
+		<option ng-repeat="key in castKeys" value="{{key}}">{{key}}</option>
+		<option ng-repeat="key in castKeys" value="-{{key}}">{{key}} desc</option>
+	</select>
+</form>
+	<table>
+	<tr>
+		<th>Number ($index+1)</th>
+		<th ng-repeat="key in castKeys">{{key}}</th>
+		<th>Reverse filter</th>
+		<th>Dialog</th>
+	</tr>
+	<tr ng-repeat="actor in avengers.cast | orderBy:sortOrder | limitTo:100 | filter:filterOnNameOrChar track by actor.Name">
+		<td ng-class-odd="'odd'">{{$index + 1}}</td>
+		<td ng-class-odd="'odd'">{{actor.Character}}</td>
+		<td ng-class-odd="'odd'">{{actor.Name}}</td>
+		<td ng-class-odd="'odd'">{{actor.Index}}</td>
+		<td ng-class-odd="'odd'">{{actor.Name | shuffle}}</td>
+		<td ng-class-odd="'odd'"><button class="btn btn-xs btn-info" ng-click="dialog(actor)">Image</button></td>
+	</tr>
+	</table>
+</div>

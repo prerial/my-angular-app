@@ -1,0 +1,28 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}
+
+.searchFilter{
+	width: 300px;
+}
+.odd {
+  background-color: lightgrey;
+}
+
+.directive-box{
+	height: 200px;
+	width: 300px;
+	background-color: yellow;
+}
+
+.dialog-img{
+	width: 100%;
+}
+
+.red {
+	color: red;
+}
+
+.error{
+	color: red;
+}
