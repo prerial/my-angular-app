@@ -1,5 +1,7 @@
-my-angular-app
+:zzz: my-angular-app :zzz:
 ==============
 version 0.2
 
-Link: https://dl.dropboxusercontent.com/u/36621967/app/index.html
+Link: [My angular app](https://shvabuk.github.io/my-angular-app)
+
+An old code example with authentication, filters and form, uses AngularJS v1.2.26
